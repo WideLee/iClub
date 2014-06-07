@@ -1,0 +1,40 @@
+{% extends 'layout-single.html' %}
+
+{% block content %}
+<ul class="breadcrumb">
+  <li><a href="../index.php">首页</a> <span class="divider">/</span></li>
+  <li class="active">发布活动</li>
+</ul>
+<div class="center">
+  <form method="post">
+    <fieldset>
+      <legend>发布活动</legend>
+      <label>标题：</label>
+      <input type="text" name="title" /> 
+      <label>分类：      </label>
+      <input type="text" name="cat" />
+      <label>盖章数：      </label>
+      <input type="text" name="stamped" />
+      <label>公益时间：      </label>
+      <input type="text" name="vhour" />
+      <label>绩点：      </label>
+      <input type="text" name="credit" />
+      <label>截止报名时间：      </label>
+      <input type="text" name="deadline" />
+      <label>活动开始时间：      </label>
+      <input type="text" name="begin" />
+      <label>活动结束时间：      </label>
+      <input type="text" name="end" />
+      <label>活动进行地点：      </label>
+      <input type="text" name="location" />
+      <label>主办方联系方式：      </label>
+      <input type="text" name="phone" />
+      <label>海报地址：      </label>
+      <input type="text" name="posturl" />
+      <label>活动简介：</label>
+      <textarea name="info"></textarea>
+      <input type="submit" value="发布活动"/><br/>
+       <a href="../index.php">发布成功！点击返回</a>
+  </form>
+</div>
+{% endblock %}

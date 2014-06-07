@@ -1,0 +1,75 @@
+.login-box,
+.register-box{
+    width: 400px;
+	height:600px;
+    margin: 50px auto;    
+}
+
+body {
+    background: #ccc;
+    padding-bottom: 40px;
+}
+
+.cc{
+    background: #fff;
+    box-shadow: 0 0 10px 2px #999;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.aclist{
+    list-style-type: none;
+    margin: 0;
+}
+
+.acli{
+    margin-bottom: 60px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.acimg{
+    position: absolute;
+    width: 200px;
+    margin-top: 20px;
+}
+
+.acli-inner{
+    margin-left: 220px;
+}
+    
+.acli > span{
+    margin-right: 1%;
+    display: block;
+}
+
+.acli em {
+    text-decoration: none;
+    font-style: normal;
+}
+
+.main{
+    margin-top: 20px;
+}
+
+.footer{
+    font-size: 13px;
+    padding: 20px 0;
+    color: #999;
+}
+
+.avatar{
+    position: relative;
+}
+
+.avatar img{
+    position: absolute;
+}
+
+.avatar a{
+    position: relative;
+    margin-left: 60px;
+    display: block;
+    min-height: 50px;
+}

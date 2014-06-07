@@ -1,0 +1,18 @@
+{% extends 'layout-single.html' %}
+
+{% block content %}
+<div class="center login-box">
+  <form method="POST">
+    <fieldset>
+    	
+      <legend>登录</legend>
+      <label>登录名:</label>
+      <input type="text" name="login_id"/>
+      <label>密码：</label>
+      <input type="password" name="password" /><br/>
+      <button type="submit" class="btn">登录</button>
+      &nbsp; <a href="s/register.php">注册</a>
+    </fieldset>
+  </form>
+  </div>
+{% endblock %}

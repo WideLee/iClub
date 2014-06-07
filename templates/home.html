@@ -1,0 +1,42 @@
+{% extends 'layout-single.html' %}
+
+{% block content %}
+<ul class="breadcrumb">
+  <li class="active">首页</li>
+</ul>
+<div class="row-fluid">
+  <div class="span8">
+  	
+    <h3>活动速递</h3>
+    <ul class="aclist">
+      {% for a in acs %}
+      <li>
+        {% include "activity_tag.html" with d=a %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="span4">
+    {% if tot %}
+    <h3>我参与活动的情况</h3>
+    <ul>
+      <li>共参加活动次数：{{ tot.total|default 0 }}</li>
+      <li>盖章：{{ tot.sn|default 0 }}</li>
+      <li>公益时数：{{ tot.vh|default 0 }}</li>
+      <li>绩点累加：{{ tot.cr|default 0 }}</li>
+    </ul>
+    {% endif %}        
+    <h3>社团一览</h3>
+    {% for c in clubs %}
+    <ul class="clubs-list">	
+      <li>
+        <div class="avatar">
+          <img src="{{c.contact|url_for_avatar}}"/>
+          <a href="/show_club.php?uid={{c.uid}}">{{c.username}}</a>
+        </div>
+      </li>
+	</ul>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

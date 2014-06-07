@@ -1,0 +1,17 @@
+{% extends 'layout-single.html' %}
+
+{% block content %}
+<ul class="breadcrumb">
+  <li><a href="../index.php">首页</a> <span class="divider">/</span></li>
+  <li class="active">查看我的会员</li>
+</ul>
+<h2>我的会员</h2>
+<p>您共有 {{ ss|length }} 个会员</p>
+<ul>
+  {% for a in ss %}
+  <li>
+    {{a.username}}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

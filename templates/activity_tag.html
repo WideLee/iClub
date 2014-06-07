@@ -1,0 +1,63 @@
+<div class="acli">
+	
+  {% if d.posturl %}
+  <img src="{{d.posturl}}" class="acimg"/>
+  {% endif %}
+  <div class="acli-inner">
+    <h3><a href="{{ d.aid|url_for_active }}">{{ d.title }}</a></h3>
+    <span>        
+      公益时数 ：<em>{{ d.volunteer_hour }}</em>
+    </span>
+    <span>        
+      体育盖章数 ： <em>{{ d.stamped_number }}</em>
+    </span>
+    <span>        
+      综合评测加分 ： <em>{{ d.credit }}</em>
+    </span>
+    <span>        
+      活动类别 ： <em>{{ d.categories }}</em>
+    </span>
+    <span>
+      活动时间 ：<em>{{ d.begin_time }}</em> ～ <em>{{ d.end_time }}</em>
+    </span>
+    <span>        
+      活动地点 ： <em>{{ d.location }}</em>
+    </span>
+    <br/>
+    <br/>
+    <pre>{{ d.other_info }}</pre>
+    {% if s %}
+    <div class="btn-toolbar">
+      {% if s.admin %}
+      <a class="btn" href="/c/show_participators.php?aid={{ d.aid }}">
+        查看报名
+      </a>
+      {% else %}
+      {% if s.is_part %}
+      <button data-aid="{{ d.aid }}" data-type="remove" onclick="change_part(this);"
+              class="btn">取消报名</button>
+      {% else %}
+      <button data-aid="{{ d.aid }}" data-type="add" onclick="change_part(this);"
+              class="btn btn-success">报名</button>
+      {% endif %}
+      {% if s.is_coll %}
+      <button data-aid="{{ d.aid }}" data-type="remove" onclick="change_coll(this);"
+              class="btn">取消收藏</button>
+      {% else %}
+      <button data-aid="{{ d.aid }}" data-type="add" onclick="change_coll(this);"
+              class="btn btn-success">收藏</button>
+      {% endif %}
+      {% endif %}
+    </div>
+  </div>
+  {% endif %}
+  {% if sponer %}
+  <hr>
+  <h5>发起者</h5>
+  <ul class="clubs-list">
+    {% for c in sponer %}
+    <li><a href="/show_club.php?uid={{c.uid}}">{{c.username}}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</div>

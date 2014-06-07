@@ -1,0 +1,44 @@
+{% extends 'layout-single.html' %}
+
+{% block content %}
+<ul class="breadcrumb">
+  <li><a href="index.php">首页</a> <span class="divider">/</span></li>
+  <li class="active">查看社团信息</li>
+</ul>
+<h2>
+  {{ club.username }}
+  {% if session.ut=='s' %}
+  {% if started %}
+  <button data-uid="{{ club.uid }}" data-type="remove"
+          onclick="change_star(this);" class="btn btn-mini">
+    取消关注</button>
+  {% else %}
+  <button data-uid="{{ club.uid }}" data-type="add"
+          onclick="change_star(this);" class="btn btn-success btn-mini">
+    关注</button>
+  {% endif %}
+  {% if cstared %}
+  <button data-uid="{{ club.uid }}" data-type="remove"
+          onclick="change_belong(this);" class="btn btn-mini">
+    退出该社团</button>
+  {% else %}
+  <button data-uid="{{ club.uid }}" data-type="add"
+          onclick="change_belong(this);" class="btn btn-success btn-mini">
+    加入社团</button>
+  {% endif %}
+  {% endif %}
+</h2>
+<hr/>
+<h4>这个社团发布的活动 ：</h4>
+{% if !acs_number %}
+<p>这个社团还没发布过任何活动！</p>
+{% else %}
+<ul class="aclist">
+  {% for a in acs %}
+  <li>
+    {% include "activity_tag.html" with d=a %}
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

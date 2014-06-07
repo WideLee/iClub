@@ -1,0 +1,17 @@
+{% extends 'layout-single.html' %}
+
+{% block content %}
+<ul class="breadcrumb">
+  <li><a href="index.php">首页</a> <span class="divider">/</span></li>
+  <li class="active">查看我参加的活动</li>
+</ul>
+<h2>我参加的活动</h2>
+<ul class="aclist">
+  {% for a in acs %}
+  <li>
+    {% include "activity_tag.html" with d=a %}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
+

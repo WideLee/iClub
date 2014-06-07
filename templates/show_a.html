@@ -1,0 +1,21 @@
+{% extends 'layout-single.html' %}
+
+{% block content %}
+<ul class="breadcrumb">
+  <li><a href="index.php">首页</a> <span class="divider">/</span></li>
+  <li class="active">查看活动信息</li>
+</ul>
+{% include "activity_tag.html" with d=a sponer=sponer %}
+<div class="comment">
+  <!-- UY BEGIN -->
+  <div id="uyan_frame"></div>
+<script type="text/javascript">
+var uyan_config = {
+     'title':'{{a.title}}',
+     'su': String(location)
+};
+</script>  
+  <script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=1787488" async=""></script>
+  <!-- UY END -->
+</div>
+{% endblock %}

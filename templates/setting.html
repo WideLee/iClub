@@ -1,0 +1,39 @@
+{% extends 'layout-single.html' %}
+
+{% block content %}
+
+<div class="center reigster-box">
+  <p>{{ msg }}</p>
+  <form method="POST">
+    {% if me.type == 'c' %}
+    <legend>修改社团信息</legend>
+    <label>昵称：</label>
+    <input type="text" name="username" value="{{ me.username }}"/> <br/>
+    <label>联系方式：</label>
+    <input type="text" name="contact" value="{{ me.contact }}"/> <br/>
+    <label>旧密码：</label>
+    <input type="password" name="oldpassword" /><br/>
+    <label>新密码：</label>
+    <input type="password" name="password" /><br/>
+    <label>确认新密码：</label>
+    <input type="password" name="password2" /><br/>
+    <button type="submit" class="btn">提交修改</button>
+    {% else %}
+    <legend>修改个人信息</legend>
+    <label>昵称：</label>
+    <input type="text" name="username" value="{{ me.username }}"/> <br/>
+    <label>电子邮箱：</label>
+    <input type="text" name="email" value="{{ me.email }}"/> <br/>
+    <label>联系电话：</label>
+    <input type="text" name="phone" value="{{ me.phone }}"/> <br/>
+    <label>密码：</label>
+    <input type="password" name="oldpassword" /><br/>
+    <label>新密码：</label>
+    <input type="password" name="password" /><br/>
+    <label>确认新密码：</label>
+    <input type="password" name="password2" /><br/>
+    <button type="submit" class="btn">提交修改</button>
+    {% endif %}
+  </form>
+</div>
+{% endblock %}

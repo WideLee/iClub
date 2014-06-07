@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}iClub{% endblock %}</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/main.js"></script>
+  </head>
+  <body>
+  <div class = "body">
+    <div class="navbar navbar-static-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="index.php">iClub</a>
+          {% block navbar %}
+          <ul class="nav">
+            <li><a href="/index.php">首页</a></li>
+            {% if session.uid %}
+            {% if session.ut == 'c' %}
+            <li><a href="/c/my_lanuch.php">我发布的活动</a></li>
+            <li><a href="/c/my_member.php">我的会员</a></li>
+            <li><a href="/c/new_activity.php">发布活动</a></li>
+            {% endif %}
+            {% if session.ut == 's' %}
+            <li><a href="/s/my_star_acs.php">我收藏的活动</a></li>
+            <li><a href="/s/my_part.php">我参加的活动</a></li>
+            <li><a href="/s/my_join_clubs.php">我加入的社团</a></li>
+            <li><a href="/s/my_star_clubs.php">我关注的社团</a></li>
+            {% endif %}
+            <li><a href="/setting.php">设置</a></li>
+            <li><a href="/logout.php">登出</a></li>
+            {% else %}
+            <li><a href="/login.php">登录</a></li>
+            {% endif %}
+          </ul>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+    <div class="container cc">
+      <div class="main">
+        {% block container %}
+        <div class="row">
+          <div class="span4">
+            {% block aside %}{% endblock %}
+          </div>
+          <div class="span8">
+            {% block content %}{% endblock %}
+          </div>
+        </div>
+        {% endblock %}
+      </div>
+      <div class="footer">
+        <hr/>
+        © 2014 UML Team. <br/>
+        Team Member:Jianttao Xu, Mingkuan Li, Yanmei Luo, Huan Huang, Chucheng Zhang. :-)
+      </div>
+    </div>
+	</ul>
+  </body>
+</html>

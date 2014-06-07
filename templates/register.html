@@ -1,0 +1,22 @@
+{% extends 'layout-single.html' %}
+
+{% block content %}
+<div class="center reigster-box">
+  <form method="POST">
+    <fieldset>
+    	
+      <legend>注册社团帐号</legend>
+      <label>登录名:</label>
+      <input type="text" name="login_id"/>
+      <label>密码：</label>
+      <input type="password" name="password" /><br/>
+      <label>昵称：</label>
+      <input type="text" name="username" /> <br/>
+      <label>联系方式：</label>
+      <input type="text" name="contact" /> <br/>
+      <button type="submit" class="btn">注册</button>
+      &nbsp; <a href="s/register.php">不是社团？注册学生帐号</a>
+    </fieldset>
+  </form>
+</div>
+{% endblock %}

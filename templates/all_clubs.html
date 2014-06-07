@@ -1,0 +1,10 @@
+{% extends 'layout-single.html' %}
+
+{% block content %}
+<h3>全部社团</h3>
+{% for c in clubs %}
+<a href="/show_club.php?uid={{c.uid}}">{{c.username}}</a>
+
+{% endfor %}
+{% endblock %}
+
